@@ -3,18 +3,21 @@
     100% {top: 475px; opacity: 1;}
   }
 
+/* animation for header, 5s*/
 header img {
     animation-name: top;
     animation-duration: 5s;
     animation-timing-function: ease-in-out;
 }
 
+/* default font, background image, backup background color*/
 body {
     font-family: poppins;
     background-image: url("../images/concrete_seamless.png");
     background-color: #f1f1f1;
 }
 
+/* default flex properties for header, allows wrapping and appropriate for mobile view*/
 header {
     display: flex;
     flex-direction: column;
@@ -24,16 +27,19 @@ header {
     margin-bottom: 0;
 }
 
+/* flex for the links, on mobile view makes links in column*/
 .nav_links {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+/* makes links the same color, regardless of if they've been clicked*/
 .nav_item a:link, .nav_item a:visited {
     color: blue;
 }
 
+/* applies rounded border to the headers of the pricing cards*/
 .card > header {
     background: #288088;
     border: solid 2px #45ADAD;
@@ -41,16 +47,16 @@ header {
     border-radius: 50px 50px 0 0;
 }
 
-.pricing > .card {
-    border-radius: 50px 50px 0 0;
-}
-
+/* rounds the corners of the card as well and sets other properties
+   if corners aren't rounded, the background at the corners will be white*/
 .card {
+    border-radius: 50px 50px 0 0;
     display: flex;
     flex-direction: column;
     flex-basis: 450px;
 }
 
+/* centers the pricing items and ensures they wrap*/
 .pricing {
     display: flex;
     justify-content: center;
@@ -58,12 +64,14 @@ header {
     flex-wrap: wrap;
 }
 
+/* border/size for each image*/
 .gallery img{
     border: solid 10px #50C7C7;
     margin: 10px;
     width: 300px;
 }
 
+/* ensures gallery is centered and flexible*/
 .gallery {
     display: flex;
     flex-direction: row;
@@ -71,60 +79,74 @@ header {
     justify-content: center;
 }
 
+/* properties for big screen*/
 @media screen and (min-width: 900px) {
+    /* header displayed on single row*/
     header {
         flex-direction: row;
     }
     
+    /* nav links also displayed on single row*/
     .nav_links {
         flex-direction: row;
     }
 
+    /* specifies width of card*/
     .card {
         flex-basis: 275px;
     }
 
+    /* ensures header sticks to top of page when scrolling*/
     body > header {
         position: sticky;
         top: 0;
     }
 }
 
+/* turns off animations when prefers reduced motion is on*/
 @media screen and (prefers-reduced-motion: reduce) {
     header img {
         animation: none;
     }
 }
 
+/* properties for print screen*/
 @media print {
+    /* default fonts, turns off background image*/
     body {
         font-family: Arial, Helvetica;
         background-image: none;
     }
 
+    /* spreads out the nav buttons*/
     nav {
         width: 100%;
     }
 
+    /* nav links on one row and have space around*/
     .nav_links {
         flex-direction: row;
         justify-content: space-around;
     }
 
+    /* ensures price boxes don't wrap and are bottom-aligned*/
     .pricing {
         flex-wrap: nowrap;
         align-items: flex-end;
     }
 
+    /* sets width and border of cards*/
     .card {
         flex-basis: 325px;
         border: solid 2px #45ADDD;
     }
 
+    /* does not display any gallery element*/
     #gallery, .gallery {
         display: none;
     }
 
+    /* adds thumbs up emoji after the text on the second list element for each card*/
     .card ul li:nth-child(2)::after {
         content: '👍'
     }
