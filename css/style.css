@@ -1,6 +1,6 @@
 @keyframes top {
-    0%   {top: 25px; opacity: 0;}
-    100% {top: 475px; opacity: 1;}
+    0%   {width: 25px; opacity: 0;}
+    100% {width: 475px; opacity: 1;}
   }
 
 /* animation for header, 5s*/
